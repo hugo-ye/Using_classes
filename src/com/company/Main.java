@@ -5,7 +5,7 @@ import static ibio.Helpers.*;
 public class Main {
 
     public static void main(String[] args) {
-        homework1();
+
     }
 
     public static void homework1() {
@@ -33,6 +33,32 @@ public class Main {
                 }
             }
         }
+    }
+
+    public static void homework3(String[] args) {
+        if (args.length < 2) {
+            System.exit(-1);
+        }
+        String processed = args[0];
+        String splitWord = args[1];
+        boolean splitting = true;
+        while (splitting) {
+            int splitStart = processed.indexOf(splitWord);
+            if (splitStart < 0) {
+                splitting = false;
+            } else {
+                String before = processed.substring(0, splitStart);
+                String after = processed.substring(splitStart + splitWord.length());
+                if (before.length() > 0) {
+                    System.out.println(before);
+                    processed = after;
+                }
+            }
+            if (processed.length() > 0) {
+                System.out.println(processed);
+            }
+        }
+
     }
 
 }
